@@ -35,11 +35,11 @@ paths:
               type: string
               description: A link to the next page of responses
           schema:
-            $ref: Pets
+            $ref: #/definitions/Pets
         default:
           description: unexpected error
           schema:
-            $ref: Error
+            $ref: #/definitions/Error
     post:
       summary: Create a pet
       operationId: createPets
@@ -51,14 +51,14 @@ paths:
           required: true
           description: The pet to create
           schema:
-            $ref: Pet
+            $ref: #/definitions/Pet
       responses:
         201:
           description: Null response
         default:
           description: unexpected error
           schema:
-            $ref: Error
+            $ref: #/definitions/Error
   /pets/{petId}:
     get:
       summary: Info for a specific pet
@@ -75,11 +75,11 @@ paths:
         200:
           description: Expected response to a valid request
           schema:
-            $ref: Pets
+            $ref: #/definitions/Pets
         default:
           description: unexpected error
           schema:
-            $ref: Error
+            $ref: #/definitions/Error
 definitions:
   Pet:
     required:
@@ -96,7 +96,7 @@ definitions:
   Pets:
     type: array
     items:
-      $ref: Pet
+      $ref: #/definitions/Pet
   Error:
     required:
       - code
